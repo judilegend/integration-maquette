@@ -1,3 +1,4 @@
+<!-- components/CardElement/DashboardCard.vue -->
 <template>
   <Card :loading="loading">
     <template #content>
