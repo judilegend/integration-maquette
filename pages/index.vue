@@ -43,6 +43,9 @@
         <div class="container mx-auto">
           <FilterCard />
         </div>
+        <div class="container mx-auto py-8">
+          <UserTable />
+        </div>
       </main>
     </div>
   </div>
@@ -53,6 +56,7 @@ import Sidebar from "../components/SideElement/Sidebar.vue";
 import Navbar from "../components/NavELement/Navbar.vue";
 import DashboardCard from "../components/CardElement/DashboardCard.vue";
 import FilterCard from "../components/LayoutFIlter/FilterCard.vue";
+import UserTable from "../components/tables/UserTable.vue";
 import {
   UserIcon,
   ClockIcon,
