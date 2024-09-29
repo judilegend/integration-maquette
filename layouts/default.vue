@@ -5,13 +5,13 @@
         id="layout-menu"
         class="layout-menu menu-vertical menu bg-menu-theme"
       >
-        <Sidebar />
+        <!-- Sidebar content -->
       </aside>
       <div class="layout-page">
         <nav
           class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
         >
-          <Navbar />
+          <!-- Navbar content -->
         </nav>
         <div class="content-wrapper">
           <slot />
