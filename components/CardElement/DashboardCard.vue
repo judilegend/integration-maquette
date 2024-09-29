@@ -1,22 +1,23 @@
 <!-- components/CardElement/DashboardCard.vue -->
 <template>
-  <Card :loading="loading">
+  <Card
+    :loading="loading"
+    class="transform transition-all duration-300 hover:scale-105"
+  >
     <template #content>
       <div class="flex justify-between items-start">
-        <div class="flex flex-col gap-y-1 h-24">
-          <span class="text-gray-600 text-sm">{{ title }}</span>
-          <div>
-            <h4 class="text-2xl font-semibold">
-              {{ value }}
-              <span v-if="percentage" :class="['text-sm', percentageColor]"
-                >({{ percentage }})</span
-              >
-            </h4>
+        <div class="flex flex-col gap-y-2">
+          <span class="text-gray-600 text-sm font-medium">{{ title }}</span>
+          <div class="flex items-baseline">
+            <h4 class="text-3xl font-bold">{{ value }}</h4>
+            <span v-if="percentage" :class="['text-sm ml-2', percentageColor]">
+              {{ percentage }}
+            </span>
           </div>
           <span class="text-xs text-gray-500">{{ subtitle }}</span>
         </div>
-        <div :class="['rounded-full p-2', iconBackgroundColor]">
-          <component :is="icon" class="w-6 h-6 text-white" />
+        <div :class="['rounded-full p-3', iconBackgroundColor]">
+          <component :is="icon" class="w-8 h-8 text-white" />
         </div>
       </div>
     </template>

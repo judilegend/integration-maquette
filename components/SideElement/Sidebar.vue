@@ -1,10 +1,11 @@
 <template>
   <aside
     id="layout-menu"
-    class="layout-menu menu-vertical menu bg-white shadow-xl text-gray-500 w-64 min-h-screen"
+    class="layout-menu menu-vertical menu bg-white shadow-xl text-gray-500 transition-all duration-300 ease-in-out overflow-hidden"
+    :class="{ 'w-64': !isCollapsed, 'w-20': isCollapsed }"
   >
     <div class="app-brand demo flex items-center justify-between p-4 border-b">
-      <AppBrandLogo />
+      <AppBrandLogo :class="{ 'w-8': isCollapsed }" />
       <MenuToggle @toggle="toggleSidebar" />
     </div>
 
@@ -13,7 +14,9 @@
     <ul class="menu-inner py-1">
       <SidebarItem v-for="item in menuItems" :key="item.title" :item="item" />
     </ul>
-    <h1 class="ml-5 font-semibold">Apps & Pages</h1>
+    <h1 class="ml-5 font-semibold" :class="{ 'opacity-0': isCollapsed }">
+      Apps & Pages
+    </h1>
     <ul class="menu-inner py-1">
       <SidebarItem v-for="item in menuItems1" :key="item.title" :item="item" />
     </ul>
@@ -31,6 +34,7 @@ import { ref } from "vue";
 import AppBrandLogo from "./AppBrandLogo.vue";
 import MenuToggle from "./MenuToogle.vue";
 import SidebarItem from "./SidebarItem.vue";
+const isCollapsed = ref(false);
 
 const menuItems = ref([
   {
@@ -113,6 +117,6 @@ const menuItems3 = ref([
   // Add more menu items as needed
 ]);
 const toggleSidebar = () => {
-  // Implement sidebar toggle logic here
+  isCollapsed.value = !isCollapsed.value;
 };
 </script>
