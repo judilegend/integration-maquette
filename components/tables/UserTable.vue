@@ -1,8 +1,8 @@
-<!-- components/tables/UserTable.vue -->
 <template>
   <div class="bg-white rounded-lg shadow-md p-6">
     <div class="flex flex-col md:flex-row justify-between mb-4">
       <div class="w-full md:w-1/4 mb-4 md:mb-0">
+        <!-- afficher par nombre -->
         <label class="block text-sm font-medium text-gray-700 mb-1"
           >Show entries</label
         >
@@ -19,6 +19,7 @@
       <div
         class="w-full md:w-3/4 flex flex-col md:flex-row justify-end items-center"
       >
+        <!-- search input -->
         <div class="w-full md:w-auto mb-4 md:mb-0 md:mr-4">
           <input
             v-model="searchQuery"
@@ -29,6 +30,7 @@
           />
         </div>
         <div class="flex">
+          <!-- open panel add user -->
           <button
             class="bg-gray-200 text-gray-700 hover:bg-gray-300 px-4 py-2 rounded-md text-sm font-medium mr-2"
           >
@@ -43,6 +45,7 @@
         </div>
       </div>
     </div>
+<!-- table all user -->
     <table class="w-full">
       <thead>
         <tr class="bg-gray-100">
@@ -98,6 +101,7 @@
         Showing {{ startIndex }} to {{ endIndex }} of {{ total }} entries
       </div>
       <div class="flex">
+        <!-- pagination -->
         <button
           @click="prevPage"
           class="bg-gray-200 text-gray-700 hover:bg-gray-300 px-4 py-2 rounded-md text-sm font-medium mr-2"
@@ -116,7 +120,6 @@
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { fetchUsers, User } from "../../utilis/fakeDatabase";
@@ -128,6 +131,12 @@ const total = ref(0);
 const currentPage = ref(1);
 const perPage = ref(10);
 const searchQuery = ref("");
+const isAddUserPanelOpen = ref(false);
+const newUser = ref({
+  fullName: "",
+  email: "",
+  role: "user",
+});
 
 const startIndex = computed(() => (currentPage.value - 1) * perPage.value + 1);
 const endIndex = computed(() =>
@@ -139,6 +148,20 @@ const fetchData = async () => {
   const result = await fetchUsers(currentPage.value, perPage.value);
   users.value = result.users;
   total.value = result.total;
+};
+
+const openAddUserPanel = () => {
+  isAddUserPanelOpen.value = true;
+};
+
+const closeAddUserPanel = () => {
+  isAddUserPanelOpen.value = false;
+};
+
+const submitNewUser = () => {
+  console.log("New user:", newUser.value);
+  newUser.value = { fullName: "", email: "", role: "user" };
+  closeAddUserPanel();
 };
 
 const prevPage = () => {

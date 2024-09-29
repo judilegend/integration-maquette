@@ -53,11 +53,23 @@
 </template>
 
 <script setup lang="ts">
-import Sidebar from "../components/SideElement/Sidebar.vue";
-import Navbar from "../components/NavELement/Navbar.vue";
-import DashboardCard from "../components/CardElement/DashboardCard.vue";
-import FilterCard from "../components/LayoutFIlter/FilterCard.vue";
-import UserTable from "../components/tables/UserTable.vue";
+import { defineAsyncComponent } from "vue";
+//dynamique import
+const Sidebar = defineAsyncComponent(
+  () => import("../components/SideElement/Sidebar.vue")
+);
+const Navbar = defineAsyncComponent(
+  () => import("../components/NavELement/Navbar.vue")
+);
+const DashboardCard = defineAsyncComponent(
+  () => import("../components/CardElement/DashboardCard.vue")
+);
+const FilterCard = defineAsyncComponent(
+  () => import("../components/LayoutFIlter/FilterCard.vue")
+);
+const UserTable = defineAsyncComponent(
+  () => import("../components/tables/UserTable.vue")
+);
 import { h } from "vue";
 
 const DollarIcon = () =>

@@ -36,14 +36,6 @@
         </div>
 
         <div class="flex items-center">
-          <!-- <IconButton>
-            <i class="ti ti-search text-2xl"></i>
-          </IconButton>
-          <span class="hidden md:flex items-center ml-2 text-sm text-gray-500">
-            <span class="mr-2">Search</span>
-            <span class="bg-gray-200 px-2 py-1 rounded text-xs">⌘K</span>
-          </span> -->
-
           <div class="ml-4 flex items-center md:ml-6">
             <IconButton
               ><svg

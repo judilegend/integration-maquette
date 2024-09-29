@@ -34,12 +34,14 @@
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent } from "vue";
+const SidebarItem = defineAsyncComponent(() => import("./SidebarItem.vue"));
+const MenuToggle = defineAsyncComponent(() => import("./MenuToogle.vue"));
 import { ref } from "vue";
 import AppBrandLogo from "./AppBrandLogo.vue";
-import MenuToggle from "./MenuToogle.vue";
-import SidebarItem from "./SidebarItem.vue";
 const isCollapsed = ref(false);
 
+//elements sidebar
 const menuItems = ref([
   {
     title: "Dashboards",
@@ -59,7 +61,6 @@ const menuItems = ref([
     </svg>`,
     children: [],
   },
-  // Add more menu items with their respective SVG icons
 ]);
 
 const menuItems1 = ref([
@@ -78,8 +79,6 @@ const menuItems1 = ref([
     icon: "ti ti-smart-home",
     children: [],
   },
-
-  // Add more menu items as needed
 ]);
 const menuItems2 = ref([
   {
@@ -97,7 +96,6 @@ const menuItems2 = ref([
     icon: "ti ti-smart-home",
     children: [],
   },
-  // Add more menu items as needed
 ]);
 const menuItems3 = ref([
   {
@@ -118,8 +116,8 @@ const menuItems3 = ref([
     icon: "ti ti-smart-home",
     children: [],
   },
-  // Add more menu items as needed
 ]);
+//fonction toogle sidebar
 const toggleSidebar = () => {
   isCollapsed.value = !isCollapsed.value;
 };

@@ -22,6 +22,7 @@
       <div v-if="item.badge" :class="['badge ml-auto mr-2', item.badge.class]">
         {{ item.badge.text }}
       </div>
+      <!-- icon svg -->
       <svg
         class="w-4 h-4 ml-auto transition-transform duration-200"
         :class="{ 'rotate-90': isOpen }"
@@ -36,8 +37,8 @@
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </a>
-    <ul 
-      v-if="item.children" 
+    <ul
+      v-if="item.children"
       class="menu-sub pl-8 overflow-hidden transition-all duration-300 ease-in-out"
       :style="{ maxHeight: isOpen ? `${item.children.length * 40}px` : '0' }"
     >
@@ -68,7 +69,7 @@ const props = defineProps<{
 }>();
 
 const isOpen = ref(false);
-
+//toogle menu
 const toggleSubmenu = () => {
   isOpen.value = !isOpen.value;
 };

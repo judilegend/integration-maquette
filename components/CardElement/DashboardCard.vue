@@ -1,5 +1,5 @@
-<!-- components/CardElement/DashboardCard.vue -->
 <template>
+  <!-- list Dashboard card -->
   <Card
     :loading="loading"
     class="transform transition-all duration-300 hover:scale-105"
@@ -26,7 +26,9 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import Card from "./Card.vue";
+import { defineAsyncComponent } from "vue";
+//dynamique import
+const Card = defineAsyncComponent(() => import("./Card.vue"));
 
 const props = defineProps<{
   loading?: boolean;

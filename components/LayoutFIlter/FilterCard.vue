@@ -11,7 +11,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import SelectField from "./SelectField.vue";
+//dynamique import
+import { defineAsyncComponent } from "vue";
+const SelectField = defineAsyncComponent(() => import("./SelectField.vue"));
 const roleOptions = ref(["Admin", "User", "Manager"]);
 const planOptions = ref(["Basic", "Pro", "Enterprise"]);
 const statusOptions = ref(["Active", "Inactive", "Pending"]);
