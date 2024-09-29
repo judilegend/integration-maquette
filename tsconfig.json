@@ -1,6 +1,0 @@
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "types": ["@nuxt/types", "@nuxtjs/composition-api"]
-  }
-}
