@@ -2,7 +2,11 @@
   <aside
     id="layout-menu"
     class="layout-menu menu-vertical menu bg-white shadow-xl text-gray-500 transition-all duration-300 ease-in-out overflow-hidden"
-    :class="{ 'w-64': !isCollapsed, 'w-20': isCollapsed }"
+    :class="{
+      'w-64': !isCollapsed,
+      'w-20': isCollapsed,
+      'max-w-md': isCollapsed,
+    }"
   >
     <div class="app-brand demo flex items-center justify-between p-4 border-b">
       <AppBrandLogo :class="{ 'w-8': isCollapsed }" />
